@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function CurrentTime() {
   const [time, setTime] = useState(new Date());
-  
+
   const localTime = time.toLocaleString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
@@ -30,7 +30,7 @@ export default function CurrentTime() {
     <>
       {parseInt(localTime) > 20 || parseInt(localTime) < 6 ? (
         <>
-          <h2 className="morning">hi baby</h2>
+          <h2 className="morning">morning</h2>
           <div className="day">
             <div>{timeZone}</div>
             <p>{localTime}</p>
@@ -43,7 +43,7 @@ export default function CurrentTime() {
         </>
       ) : (
         <>
-          <h2 className="evening">hi baby</h2>
+          <h2 className="evening">evening</h2>
           <div className="day">
             <div>{timeZone}</div>
             <p>{localTime}</p>
