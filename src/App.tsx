@@ -1,16 +1,14 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Quotes from "./Components/Quotes";
+import CurrentTime from "./Components/CurrentTime";
 function App() {
+  
   return (
-    <div className="App">
-      <p>Hii</p>
-
-      <header>jbejbf</header>
-
-      <h1>test</h1>
-    </div>
+    <>
+      <Quotes />
+      <CurrentTime />
+    </>
   );
 }
 
