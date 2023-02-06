@@ -1,11 +1,11 @@
 import Quotes from "./Components/Quotes";
-import CurrentTime from "./Components/CurrentTime";
+import CurrentData from "./Components/CurrentData";
 function App() {
   
   return (
     <>
       <Quotes />
-      <CurrentTime />
+      <CurrentData />
     </>
   );
 }
