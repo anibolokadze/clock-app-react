@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 export default function Quotes() {
-  const [quoteState, setQuoteState] = useState<any>([]);
+  const [quote, setQuote] = useState<any>([]);
   useEffect(() => {
     updateQuote();
   }, []);
 
   async function updateQuote() {
     axios.get("https://dummyjson.com/quotes/random").then((res) => {
-      setQuoteState(res.data);
+      setQuote(res.data);
     });
   }
   return (
     <div>
-      <h1>{quoteState.quote ? quoteState.quote : "Loading"}</h1>
-      <span>{quoteState.quote ? quoteState.author : "Loading"}</span>
+      <h1>{quote.quote ? quote.quote : "Loading"}</h1>
+      <span>{quote.quote ? quote.author : "Loading"}</span>
       <button onClick={updateQuote}>click</button>
     </div>
   )
