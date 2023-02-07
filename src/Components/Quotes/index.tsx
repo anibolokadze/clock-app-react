@@ -17,5 +17,5 @@ export default function Quotes() {
       <span>{quote.quote ? quote.author : "Loading"}</span>
       <button onClick={updateQuote}>click</button>
     </div>
-  )
+  );
 }

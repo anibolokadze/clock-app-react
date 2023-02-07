@@ -1,10 +1,8 @@
-import axios from "axios";
-import { getCountriesForTimezone } from "countries-and-timezones";
 import { useEffect, useState } from "react";
-
+import DayImg from "../../assets/mobile/bg-image-daytime.jpg";
 export default function CurrentData() {
   const [time, setTime] = useState(new Date());
-  const [isShown, setIsShown] = useState(false);
+  const [show, setShow] = useState(false);
 
   const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
   const city = { timeZone }.timeZone.split("/").pop();
@@ -27,8 +25,8 @@ export default function CurrentData() {
     return differenceInDays;
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setIsShown((current) => !current);
+  const handleClick = () => {
+    setShow((current) => !current);
   };
 
   useEffect(() => {
@@ -37,48 +35,52 @@ export default function CurrentData() {
 
   return (
     <>
-      {parseInt(localTime) > 17 || parseInt(localTime) < 6 ? (
-        <>
-          <h2 className="evening">evening</h2>
-          <div className="day">
-            <p>{localTime}</p>
-            <p>In {city}</p>
-          </div>
-
-          <button onClick={handleClick}>Click</button>
-          {isShown && (
-            <div>
-              <div>{timeZone}</div>
-              <p>Day of the year: {dayOfTheYear(new Date())}</p>
-              <p>
-              Day of the week
-              {time.getDay()}
-            </p>
+      <div>
+        {parseInt(localTime) > 20 || parseInt(localTime) < 7 ? 
+          <div>
+            <img src={DayImg} />
+            <h2 className="evening">GOOD EVENING, IT’S CURRENTLY</h2>
+            <div className="day">
+              <p>{localTime}</p>
+              <p>In {city}</p>
             </div>
-          )}
-        </>
-      ) : (
-        <>
-          <h2 className="evening">morning</h2>
-          <div className="day">
-            <p>{localTime}</p>
-            <p>In {city}</p>
+
+            <button onClick={handleClick}>Click</button>
+            {show && (
+              <div>
+                <div>{timeZone}</div>
+                <p>Day of the year: {dayOfTheYear(new Date())}</p>
+                <p>
+                  Day of the week
+                  {time.getDay()}
+                </p>
+              </div>
+            )}
           </div>
-
-          <button onClick={handleClick}>Click</button>
-
-          {isShown && (
-            <div>
-              <div>{timeZone}</div>
-              <p>Day of the year: {dayOfTheYear(new Date())}</p>
-              <p>
-              Day of the week
-              {time.getDay()}
-            </p>
+        : 
+          <div>
+            <h2 className="evening">GOOD MORNING, IT’S CURRENTLY</h2>
+            <div className="day">
+              <p>{localTime}</p>
+              <p>In {city}</p>
             </div>
-          )}
-        </>
-      )}
+
+            <button onClick={handleClick}>Click</button>
+
+            {show && (
+              <div>
+                <div>{timeZone}</div>
+                <p>Day of the year: {dayOfTheYear(new Date())}</p>
+                <p>
+                  Day of the week
+                  {time.getDay()}
+                </p>
+              </div>
+            )}
+          </div>
+        }
+      </div>
+      <div></div>
     </>
   );
 }
