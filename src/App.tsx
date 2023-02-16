@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+import "./App.css";
 import Quotes from "./Components/Quotes";
 import CurrentData from "./Components/CurrentData";
+
+import bgImageDaytime from "./assets/mobile/bg-image-daytime.jpg";
+import bgImageNighttime from "./assets/mobile/bg-image-nighttime.jpg";
 
 function App() {
   const [time, setTime] = useState(new Date());
@@ -14,16 +18,19 @@ function App() {
     return () => clearInterval(intervalId);
   }, []);
 
-  let backgroundImage = "bg-image-daytime.jpg";
+  let backgroundImage = bgImageDaytime;
   const hour = time.getHours();
 
   if (hour >= 18 || hour < 5) {
-    backgroundImage = "bg-image-nighttime.jpg";
+    backgroundImage = bgImageNighttime;
   }
 
   const headerStyle = {
-    backgroundImage: `url("assets/mobile/${backgroundImage}")`,
+    backgroundImage: `url(${backgroundImage})`,
     height: "100vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   return (

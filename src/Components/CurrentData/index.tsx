@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import style from "../../App.module.css";
 
 export default function CurrentData() {
   const [time, setTime] = useState(new Date());
@@ -54,8 +53,8 @@ export default function CurrentData() {
 
   return (
     <>
-      <div className={style.container}>
-        <h2 className="evening">{greeting}</h2>
+      <div>
+        <h2>{greeting}</h2>
         <div className="day">
           <p>{localTime}</p>
           <p>In {city}</p>
