@@ -32,9 +32,8 @@ function App() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    backgroundColor: "rgb(216, 216, 216)",
+    backgroundColor: "#ffff",
     backgroundBlendMode: "multiply",
-    padding: "26px 26px 0 26px",
   };
 
   return (

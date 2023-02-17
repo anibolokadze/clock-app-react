@@ -1,6 +1,7 @@
 .content {
   display: flex;
   justify-content: space-between;
+  padding: 26px 26px 0 26px;
   h1 {
     font-size: 12px;
     line-height: 22px;
@@ -15,4 +16,15 @@
 span {
   font-weight: 700;
   font-size: 12px;
+  padding: 0 26px;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    max-width: 70%;
+    h1,
+    span {
+      font-size: 18px !important;
+    }
+  }
 }

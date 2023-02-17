@@ -1,5 +1,7 @@
 .wrapper {
-  margin-top: 70%;
+  position: absolute;
+  top: 40%;
+  padding: 26px;
 }
 
 .greeting {
@@ -34,6 +36,8 @@
   padding: 5px;
   border-radius: 28px;
   color: #000000;
+  position: absolute;
+  top: 63%;
 }
 .btnWrapper .showBtn .img,
 .btnWrapper .showBtnActive .img {
@@ -44,4 +48,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.btnWrapper .show {
+  width: 100vw;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  position: absolute;
+  padding: 30px 26px;
+  overflow: hidden;
+  display: grid;
+  row-gap: 10px;
+}
+.btnWrapper .flex {
+  display: flex;
+  justify-content: space-between;
+}
+.btnWrapper .flex p,
+.btnWrapper .flex h3 {
+  color: #303030 !important;
+}
+.btnWrapper .flex h3 {
+  font-weight: 700;
 }/*# sourceMappingURL=CurrentData.module.css.map */

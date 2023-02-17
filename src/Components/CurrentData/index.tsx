@@ -95,10 +95,22 @@ export default function CurrentData() {
 
         {show && (
           <div className={style.show}>
-            <div>{timeZone}</div>
-            <p>Day of the year: {dayOfTheYear(new Date())}</p>
-            <p>Day of the week {time.getDay() + 1}</p>
-            <p>Week number: {weekNumber()}</p>
+            <div className={style.flex}>
+              <p>CURRENT TIMEZONE: </p>
+              <h3>{timeZone}</h3>
+            </div>
+            <div className={style.flex}>
+              <p>Day of the year: </p>
+              <h3>{dayOfTheYear(new Date())}</h3>
+            </div>
+            <div className={style.flex}>
+              <p>Day of the week: </p>
+              <h3>{time.getDay() + 1}</h3>
+            </div>
+            <div className={style.flex}>
+              <p>Week number: </p>
+              <h3>{weekNumber()}</h3>
+            </div>
           </div>
         )}
       </div>
