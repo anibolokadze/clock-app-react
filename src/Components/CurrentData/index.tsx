@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
+import style from "./CurrentData.module.scss";
 
+import moonIcon from "../../assets/desktop/icon-moon.svg";
+import sunIcon from "../../assets/desktop/icon-sun.svg";
+import arrowDown from "../../assets/desktop/icon-arrow-down.svg";
+import arrowUp from "../../assets/desktop/icon-arrow-up.svg";
 export default function CurrentData() {
   const [time, setTime] = useState(new Date());
   const [show, setShow] = useState(false);
+
+  const [icon, setIcon] = useState("");
+  const [greeting, setGreeting] = useState("");
 
   const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
   const city = { timeZone }.timeZone.split("/").pop();
@@ -10,7 +18,7 @@ export default function CurrentData() {
   const localTime = time.toLocaleString("en-US", {
     hour: "numeric",
     minute: "2-digit",
-    hour12: true,
+    hour12: false,
   });
 
   const dayOfTheYear = function getDayOfTheYear(date = new Date()) {
@@ -39,29 +47,54 @@ export default function CurrentData() {
   };
 
   useEffect(() => {
+    const time = new Date();
+    let newIcon;
+    let newGreeting;
+    if (time.getHours() >= 5 && time.getHours() < 12) {
+      newIcon = sunIcon;
+      newGreeting = "GOOD MORNING, IT’S CURRENTLY";
+    } else if (time.getHours() >= 12 && time.getHours() < 18) {
+      newIcon = sunIcon;
+      newGreeting = "GOOD AFTERNOON, IT’S CURRENTLY";
+    } else {
+      newIcon = moonIcon;
+      newGreeting = "GOOD EVENING, IT’S CURRENTLY";
+    }
+    setIcon(newIcon);
+    setGreeting(newGreeting);
     setInterval(() => setTime(new Date()), 1000);
   }, []);
 
-  let greeting;
-  if (time.getHours() >= 5 && time.getHours() < 12) {
-    greeting = "GOOD MORNING, IT’S CURRENTLY";
-  } else if (time.getHours() >= 12 && time.getHours() < 18) {
-    greeting = "GOOD AFTERNOON, IT’S CURRENTLY";
-  } else {
-    greeting = "GOOD EVENING, IT’S CURRENTLY";
-  }
-
   return (
     <>
-      <div>
-        <h2>{greeting}</h2>
-        <div className="day">
+      <div className={style.wrapper}>
+        <div className={style.greeting}>
+          <img src={icon} alt="icon" />
+          <h2>{greeting}</h2>
+        </div>
+
+        <div className={style.info}>
           <p>{localTime}</p>
           <p>In {city}</p>
         </div>
-        <button onClick={handleClick}>Click</button>
+      </div>
+      <div className={style.btnWrapper}>
+        <button
+          onClick={handleClick}
+          className={`${style.showBtn} ${show ? style.showBtnActive : ""}`}
+        >
+          {show ? "LESS" : "MORE"}
+          <div className={style.img}>
+            <img
+              src={show ? arrowUp : arrowDown}
+              alt={show ? "arrow-up" : "arrow-down"}
+              className={style.arrowIcon}
+            />
+          </div>
+        </button>
+
         {show && (
-          <div>
+          <div className={style.show}>
             <div>{timeZone}</div>
             <p>Day of the year: {dayOfTheYear(new Date())}</p>
             <p>Day of the week {time.getDay() + 1}</p>

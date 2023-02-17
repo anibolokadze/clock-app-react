@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+
 import Quotes from "./Components/Quotes";
 import CurrentData from "./Components/CurrentData";
 
-import bgImageDaytime from "./assets/mobile/bg-image-daytime.jpg";
-import bgImageNighttime from "./assets/mobile/bg-image-nighttime.jpg";
+import bgImageDaytime from "./assets/desktop/bg-image-daytime.jpg";
+import bgImageNighttime from "./assets/desktop/bg-image-nighttime.jpg";
 
 function App() {
   const [time, setTime] = useState(new Date());
@@ -31,6 +32,9 @@ function App() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    backgroundColor: "rgb(216, 216, 216)",
+    backgroundBlendMode: "multiply",
+    padding: "26px 26px 0 26px",
   };
 
   return (

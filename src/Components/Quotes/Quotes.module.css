@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.content h1 {
+  font-size: 12px;
+  line-height: 22px;
+  margin-bottom: 8px;
+  max-width: 80%;
+}
+.content button {
+  all: unset;
+  cursor: pointer;
+}
+
+span {
+  font-weight: 700;
+  font-size: 12px;
+}/*# sourceMappingURL=Quotes.module.css.map */

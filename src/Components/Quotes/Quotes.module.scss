@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    max-width: 80%;
+  }
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+}
+span {
+  font-weight: 700;
+  font-size: 12px;
+}
