@@ -13,5 +13,5 @@ Your users should be able to:
 - Generate random programming quotes by clicking the refresh icon near the quote
 
 
-🌎 Live site URL: https://clock-app-react-anibolokadze.vercel.app/
+🌎 Live site URL: https://clock-app-react-anibolokadze.vercel.app/ <br>
 👩‍💻 LinkedIn: https://www.linkedin.com/in/ani-bolokadze-34b872252/
