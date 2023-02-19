@@ -32,7 +32,7 @@ function App() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    backgroundColor: "#rgb(216, 216, 216)",
+    backgroundColor: "rgb(216, 216, 216)",
     backgroundBlendMode: "multiply",
   };
 
