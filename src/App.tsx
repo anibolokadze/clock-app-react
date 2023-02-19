@@ -29,9 +29,9 @@ function App() {
   const headerStyle = {
     backgroundImage: `url(${backgroundImage})`,
     height: "100vh",
+    width: "100vw",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundPosition: "center",
     backgroundColor: "rgb(216, 216, 216)",
     backgroundBlendMode: "multiply",
   };
